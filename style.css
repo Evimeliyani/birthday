@@ -1,0 +1,82 @@
+* { box-sizing: border-box; font-family: system-ui, Arial, sans-serif; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: #111;
+  overflow: hidden;
+}
+
+.bg{
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #ffe1f0, #c7e8ff, #ffffff);
+  z-index: -1;
+}
+
+.card{
+  width: min(520px, 92vw);
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  text-align: center;
+  animation: pop .5s ease;
+}
+
+.hidden{ display: none; }
+
+button, .btn-link{
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .btn-link:hover{
+  transform: translateY(-1px);
+}
+
+.actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.message{
+  font-size: 1.05rem;
+  line-height: 1.6;
+  min-height: 96px;
+  white-space: pre-line;
+}
+
+small{ opacity: 0.75; }
+
+@keyframes pop {
+  from { transform: scale(.97); opacity: .6; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Confetti */
+.confetti{
+  position: fixed;
+  width: 8px;
+  height: 12px;
+  top: -20px;
+  left: 50%;
+  opacity: .92;
+  border-radius: 2px;
+  animation: fall linear forwards;
+}
+@keyframes fall{
+  to{ transform: translate(var(--x), 110vh) rotate(720deg); }
+}
